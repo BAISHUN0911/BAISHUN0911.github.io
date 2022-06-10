@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>使用Hexo+GitHub搭建个人博客 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="一、安装Hexo前置条件  安装Node.js Git  Node.js版本node-v16.15.1 查看版本 安装完成后打开 cmd(或powershell) 输入命令 node -v 或者 npm -v 来查看node当前版本号或者npm当前版本。 环境变量 避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。 D:\nodejs也就是">
+  <meta name="description" content="一、安装Hexo1.前置条件 安装Node.js Git  Node.js版本node-v16.15.1 2.查看版本安装完成后打开 cmd(或powershell) 输入命令 node -v 或者 npm -v 来查看node当前版本号或者npm当前版本。 3.环境变量避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。 D:\nodejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="使用Hexo+GitHub搭建个人博客">
 <meta property="og:url" content="http://example.com/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、安装Hexo前置条件  安装Node.js Git  Node.js版本node-v16.15.1 查看版本 安装完成后打开 cmd(或powershell) 输入命令 node -v 或者 npm -v 来查看node当前版本号或者npm当前版本。 环境变量 避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。 D:\nodejs也就是">
+<meta property="og:description" content="一、安装Hexo1.前置条件 安装Node.js Git  Node.js版本node-v16.15.1 2.查看版本安装完成后打开 cmd(或powershell) 输入命令 node -v 或者 npm -v 来查看node当前版本号或者npm当前版本。 3.环境变量避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。 D:\nodejs">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-10T07:32:00.986Z">
-<meta property="article:modified_time" content="2022-06-10T07:30:12.744Z">
+<meta property="article:published_time" content="2022-06-10T08:39:05.000Z">
+<meta property="article:modified_time" content="2022-06-10T08:39:50.127Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -76,50 +76,67 @@
         <section id="main"><article id="post-Hexo-搭建博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time class="dt-published" datetime="2022-06-10T07:32:00.986Z" itemprop="datePublished">2022-06-10</time>
+  <time class="dt-published" datetime="2022-06-10T08:39:05.000Z" itemprop="datePublished">2022-06-10</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      使用Hexo+GitHub搭建个人博客
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="一、安装Hexo"><a href="#一、安装Hexo" class="headerlink" title="一、安装Hexo"></a>一、安装Hexo</h3><p><strong>前置条件</strong></p>
-<ul>
+        <h3 id="一、安装Hexo"><a href="#一、安装Hexo" class="headerlink" title="一、安装Hexo"></a>一、安装Hexo</h3><h4 id="1-前置条件"><a href="#1-前置条件" class="headerlink" title="1.前置条件"></a>1.前置条件</h4><ul>
 <li>安装Node.js</li>
 <li>Git</li>
 </ul>
 <p>Node.js版本node-v16.15.1</p>
-<p><strong>查看版本</strong></p>
-<p>安装完成后打开 cmd(或powershell)</p>
+<h4 id="2-查看版本"><a href="#2-查看版本" class="headerlink" title="2.查看版本"></a>2.查看版本</h4><p>安装完成后打开 cmd(或powershell)</p>
 <p>输入命令 <code>node -v</code> 或者 <code>npm -v</code> 来查看node当前版本号或者npm当前版本。</p>
-<p><strong>环境变量</strong></p>
-<p>避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。</p>
+<h4 id="3-环境变量"><a href="#3-环境变量" class="headerlink" title="3.环境变量"></a>3.环境变量</h4><p>避免后续npm以及cache占用C盘空间，这里配置npm安装的全局模块所在的路径，以及缓存cache的路径。</p>
 <p>D:\nodejs也就是node.js安装目录下建立node_cache作为nodejs的缓存文件夹，node_global作为npm命令安装模块安装目录（真实环境下nodejs会在安装在node_global\node_modules下）</p>
 <p>环境变量的配置：</p>
 <ul>
 <li>用户环境变量PATH将…Roaming\npm改为D:\nodejs\node_global</li>
 <li>系统变量新加NODE_PATH:D:\nodejs\node_global\node_modules</li>
 </ul>
-<p><strong>镜像配置</strong></p>
-<p>你可以使用我们定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 <code>npm</code>:</p>
+<h4 id="4-镜像配置"><a href="#4-镜像配置" class="headerlink" title="4.镜像配置"></a>4.镜像配置</h4><p>你可以使用我们定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 <code>npm</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment">#后续使用</span></span><br><span class="line">cnpm install [name]</span><br></pre></td></tr></table></figure>
 
 <p><em>注意：-g全局安装</em></p>
 <p>推荐一款切换镜像的工具：nrm，我们首先安装nrm，这里<code>-g</code>代表全局安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install nrm -g</span><br><span class="line">nrm <span class="built_in">ls</span>	列出镜像</span><br><span class="line">nrm use taobao	使用淘宝镜像</span><br><span class="line">nrm <span class="built_in">test</span> npm	测试速度</span><br></pre></td></tr></table></figure>
 
-<p>安装<strong>Hexo</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<h4 id="5-安装部署到GitHub"><a href="#5-安装部署到GitHub" class="headerlink" title="5.安装部署到GitHub"></a>5.安装部署到GitHub</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo -v	<span class="comment">#查看Hexo版本</span></span><br></pre></td></tr></table></figure>
 
 <p>找地方创建blog文件夹，然后在blog文件下执行hexo init</p>
 <p>然后 hexo s 开启<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;blog-name&quot;</span>		<span class="comment">#创建博客，在D:\blog\source\_posts下</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g	<span class="comment">#重新编译网页</span></span><br><span class="line"><span class="comment">#安装 hexo-deployer-git</span></span><br><span class="line">cnpm install --save hexo-deployer-git</span><br><span class="line"><span class="comment">#安装 完后配置_config.yml的# Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>hexo clean &amp;&amp; hexo deploy</code> 。</p>
+<p>查看 <em>username</em>.github.io 上的网页是否部署成功。</p>
+<p><strong>注意：repo建议使用github的SSH</strong></p>
+<h4 id="6-Theme切换"><a href="#6-Theme切换" class="headerlink" title="6.Theme切换"></a>6.Theme切换</h4><p>yilia主题：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<p>发现新增D:\blog\themes\yilia</p>
+<p>设置_config.yml，theme: landscape修改为theme: yilia</p>
+<p>hexo clean	hexo g	hexo s然后本地<a target="_blank" rel="noopener" href="http://localhost:4000/%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C">http://localhost:4000/查看效果</a></p>
+<p>hexo d将更新主题后的hexo更新到github</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="cl485zncu0002goudao1i6kdh" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="cl4878wqj0000iwud17d70k82" data-title="使用Hexo+GitHub搭建个人博客" class="article-share-link">Share</a>
       
       
       
@@ -170,7 +187,7 @@
       <ul>
         
           <li>
-            <a href="/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">(no title)</a>
+            <a href="/2022/06/10/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">使用Hexo+GitHub搭建个人博客</a>
           </li>
         
           <li>
