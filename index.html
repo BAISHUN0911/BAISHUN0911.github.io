@@ -156,6 +156,292 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基础算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/22/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">算法基础入门——Java</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/22/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-06-22T09:16:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、数据结构"><a href="#一、数据结构" class="headerlink" title="一、数据结构"></a>一、数据结构</h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>常用的数据结构可根据数据访问的特点分为</p>
+<blockquote>
+<p>线性结构</p>
+</blockquote>
+<p>常见的链表、栈、队列</p>
+<blockquote>
+<p>非线性结构。</p>
+</blockquote>
+<p>树、图等</p>
+<h4 id="1-先进后出的栈"><a href="#1-先进后出的栈" class="headerlink" title="1.先进后出的栈"></a>1.先进后出的栈</h4><p><img src="https://ask.qcloudimg.com/http-save/yehe-5359587/f1uyb7t5l4.gif" alt="img"></p>
+<blockquote>
+<p>栈的相关操作</p>
+</blockquote>
+<p>push 压栈			pop 弹栈				top返回栈顶元素值</p>
+<blockquote>
+<p>Java模拟栈</p>
+</blockquote>
+<p>预期输入：</p>
+<p>6						正整数 n，代表操作次数</p>
+<p>push 1<br>pop<br>top<br>push 2<br>push 3<br>pop</p>
+<p>预期输出：</p>
+<p>1<br>error<br>3</p>
+<h5 id="1）栈的模拟"><a href="#1）栈的模拟" class="headerlink" title="1）栈的模拟"></a>1）栈的模拟</h5><p><strong>①通过数组模拟栈</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myStack</span>&#123;</span><br><span class="line">    <span class="type">int</span>[] data; <span class="comment">//用数组来模拟栈中存放的数据</span></span><br><span class="line">    <span class="type">int</span> size=<span class="number">0</span>; <span class="comment">//栈中元素的个数</span></span><br><span class="line">    <span class="type">int</span> maxSize;    <span class="comment">//栈中最多存放数据的个数</span></span><br><span class="line">    myStack()&#123;&#125;</span><br><span class="line">    myStack(<span class="type">int</span> maxSize)&#123; </span><br><span class="line">        <span class="built_in">this</span>.maxSize=maxSize;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="title class_">int</span>[maxSize];    <span class="comment">//一定记得初始化数组，不然后续操作空指针</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//压栈</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> val)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="built_in">this</span>.maxSize)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            data[<span class="built_in">this</span>.maxSize-size-<span class="number">1</span>]=val;</span><br><span class="line">            <span class="built_in">this</span>.size++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//弹栈</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="number">0</span>)&#123; System.out.println(<span class="string">&quot;error&quot;</span>); &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(data[<span class="built_in">this</span>.maxSize-size]);</span><br><span class="line">            <span class="built_in">this</span>.size--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//查看栈顶元素</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">top</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="number">0</span>)&#123; System.out.println(<span class="string">&quot;error&quot;</span>); &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123; System.out.println(data[maxSize-size]); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>②通过集合模拟栈</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="type">ArrayList</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">    list.add(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注意Object返回值类型</span></span><br><span class="line"><span class="keyword">static</span> Object <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!list.isEmpty())&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">str</span> <span class="operator">=</span> (Integer)list.get(list.size()-<span class="number">1</span>);</span><br><span class="line">        list.remove(list.size()-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123; <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> Object <span class="title function_">top</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!list.isEmpty())&#123;</span><br><span class="line">        <span class="keyword">return</span> list.get(list.size()-<span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2）栈的弹出序列可能性"><a href="#2）栈的弹出序列可能性" class="headerlink" title="2）栈的弹出序列可能性"></a>2）栈的弹出序列可能性</h5><p>第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。</p>
+<p>例如序列1,2,3,4,5是某栈的压入顺序</p>
+<p>序列4,5,3,2,1<strong>可能</strong>是该压栈序列对应的一个弹出序列。	返回true</p>
+<p>但4,3,5,1,2就<strong>不可能</strong>是该压栈序列的弹出序列。				返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断boolean的思路</span></span><br><span class="line"><span class="type">boolean</span> <span class="title function_">maybe</span><span class="params">(压栈顺序push1，出栈顺序pop1)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(push1.size==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; stack;	<span class="comment">//用vector模拟栈，也可以用数组，集合都行</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;push1.length;)&#123;</span><br><span class="line">        stack.push(push1[i++]);	<span class="comment">//按压栈顺序进行push</span></span><br><span class="line">        <span class="keyword">while</span>(j&lt;pop1.size()&amp;&amp;stack.top()==pop1[j]&#123;</span><br><span class="line">            <span class="comment">//j=0，如果j&lt;出栈顺序的size进行循环。并且当前栈stack的top等于出战顺序pop1的第一个元素，那么就对stack栈进行弹栈</span></span><br><span class="line">            stack.pop();</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==pop1.size())&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-先进先出的队列"><a href="#2-先进先出的队列" class="headerlink" title="2.先进先出的队列"></a>2.先进先出的队列</h4><img src="https://pic1.zhimg.com/v2-b01d61540e5c073f053f94037d517360_b.webp" alt="动图" style="zoom: 67%;" />
+
+<blockquote>
+<p>队列的相关操作</p>
+</blockquote>
+<p>push x	将x加入队尾，保证x为int型整数	</p>
+<p>pop		输出队首，并让队首出队</p>
+<p>front	  输出队首值，不出队</p>
+<p><code>input</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">push 1</span><br><span class="line">pop</span><br><span class="line">front</span><br><span class="line">push 2</span><br><span class="line">push 3</span><br><span class="line">pop</span><br></pre></td></tr></table></figure>
+
+<p><code>output</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">error</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h5 id="1）Java模拟队列"><a href="#1）Java模拟队列" class="headerlink" title="1）Java模拟队列"></a>1）Java模拟队列</h5><p><strong>①通过数组</strong></p>
+<p>图示思路：</p>
+<p><img src="C:\Users\BOSHUN\AppData\Roaming\Typora\typora-user-images\数组模拟队列.png" alt="数组模拟队列"></p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myQueue</span>&#123;</span><br><span class="line">    <span class="type">int</span>[] data; <span class="comment">//用数组来模拟栈中存放的数据</span></span><br><span class="line">    <span class="type">int</span> size=<span class="number">0</span>; <span class="comment">//栈中元素的个数</span></span><br><span class="line">    <span class="type">int</span> maxSize;    <span class="comment">//栈中最多存放数据的个数</span></span><br><span class="line">    myQueue()&#123;&#125;</span><br><span class="line">    myQueue(<span class="type">int</span> maxSize)&#123; </span><br><span class="line">        <span class="built_in">this</span>.maxSize=maxSize;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="title class_">int</span>[maxSize];    <span class="comment">//一定记得初始化数组，不然后续操作空指针</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//入队</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> val)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="built_in">this</span>.maxSize)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            data[<span class="built_in">this</span>.maxSize-size-<span class="number">1</span>]=val;</span><br><span class="line">            <span class="built_in">this</span>.size++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//出队</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="number">0</span>)&#123; System.out.println(<span class="string">&quot;error&quot;</span>); &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(data[<span class="built_in">this</span>.maxSize-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(size&gt;=<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.size--;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)&#123;</span><br><span class="line">                    data[<span class="built_in">this</span>.maxSize-i-<span class="number">1</span>]=data[<span class="built_in">this</span>.maxSize-i-<span class="number">2</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.size--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//查看队首元素</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">front</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.size==<span class="number">0</span>)&#123; System.out.println(<span class="string">&quot;error&quot;</span>); &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123; System.out.println(data[maxSize-<span class="number">1</span>]); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>②通过集合</strong></p>
+<p>图示思路:</p>
+<p><img src="C:\Users\BOSHUN\AppData\Roaming\Typora\typora-user-images\ArrayList模拟队列.png" alt="ArrayList模拟队列"></p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">ArrayList</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">        list.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//注意Object返回值类型</span></span><br><span class="line">    <span class="keyword">static</span> Object <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!list.isEmpty())&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">str</span> <span class="operator">=</span> (Integer)list.get(<span class="number">0</span>); <span class="comment">//ArrayList第一元素就是最先进去的</span></span><br><span class="line">            list.remove(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123; <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> Object <span class="title function_">front</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!list.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> list.get(<span class="number">0</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2）循环队列"><a href="#2）循环队列" class="headerlink" title="2）循环队列"></a>2）循环队列</h5><blockquote>
+<p>操作</p>
+</blockquote>
+<p>push x：将x加入到循环队列尾端。若循环队列已满，输出”full”(不含引号)，否则不输出任何内容。保证x<em>x</em>为int型整数。<br>front：输出队首元素，队首不出队。若队列为空，输出”empty”(不含引号)。<br>pop：输出队首元素，且队首出队。若队列为空，输出”empty”(不含引号)。</p>
+<blockquote>
+<p>循环队列组成</p>
+</blockquote>
+<p>存放元素的数组，队头指针， 队尾指针。</p>
+<p><em>队头指针：front，指向队头元素；队尾指针：rear，指向队尾的下一个元素</em></p>
+<p>arr[front]的值就是当前队列的队头元素值</p>
+<p>arr[rear-1]的值就是当前队列的队尾元素值</p>
+<ul>
+<li>初始状态：front&#x3D;rear&#x3D;0,队列为空</li>
+<li>某一状态：front&#x3D;0,rear&#x3D;3<ul>
+<li>例如数组arr[5]实时情况为：{1,2,3,0,0}，队头元素arr[0]&#x3D;1,队尾元素arr[2]&#x3D;3</li>
+</ul>
+</li>
+</ul>
+<p>解释：每次push一个元素到队列尾部，rear++，当arr[4]放入元素，rear将会达到5</p>
+<ul>
+<li>队列装满状态：front&#x3D;0&#x3D;rear？？</li>
+</ul>
+<p>但是数组下标为0-4,5并没有意义。所以rear如果等于5了应该再将它置为0。</p>
+<p>改进：元素入队时rear&#x3D;(rear+1)%maxSize，假如maxSize&#x3D;5，rear+1&#x3D;5时对maxSize取余为0达到效果。</p>
+<p><strong>发现问题：</strong>无法通过判断front&#x3D;&#x3D;rear来确定循环队列是否装满。</p>
+<img src="https://img-blog.csdn.net/20160402104839540" alt="这里写图片描述" style="zoom:50%;" />
+
+<p>牺牲一个存储单元，(rear+1)%maxSize&#x3D;front的话，证明队满。rear&#x3D;maxSize的话，证明队空。</p>
+<ul>
+<li>有元素出队的情况：front&#x3D;1，rear&#x3D;3<ul>
+<li>例如数组arr[5]实时情况为：{0,2,3,0,0}，队头元素arr[0]出队了,队尾元素arr[2]&#x3D;3</li>
+</ul>
+</li>
+</ul>
+<p>解释：每一次pop队头元素，front++，上述情况如果2,3再依次出队，front&#x3D;rear&#x3D;3，队空了。</p>
+<p>改进：元素出队front&#x3D;(front+1)%maxSize</p>
+<p><strong>循环队列长度计算公式：(rear-front+maxSize)%maxSize</strong></p>
+<p>{0,2,3,0,0}:front&#x3D;1,rear&#x3D;3,size&#x3D;(3-1+5)%5&#x3D;2</p>
+<p>{6,0,3,4,5}:front&#x3D;2,rear&#x3D;1,size&#x3D;(1-2+5)%5&#x3D;4</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 循环队列，队列元素存到数组中</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">queue3</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] data;</span><br><span class="line">    <span class="type">int</span> maxSize;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> front=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> rear=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    queue3()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    queue3(<span class="type">int</span> n)&#123;</span><br><span class="line">        maxSize=n+<span class="number">1</span>;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="title class_">int</span>[maxSize];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String <span class="title function_">push</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>((rear+<span class="number">1</span>)%maxSize==front)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;full&quot;</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            data[rear]=x;</span><br><span class="line">            rear=(rear+<span class="number">1</span>)%maxSize;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//注意Object返回值类型</span></span><br><span class="line">    Object <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!(rear==front))&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">str</span> <span class="operator">=</span> data[front];</span><br><span class="line">            front=(front+<span class="number">1</span>)%maxSize;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123; <span class="keyword">return</span> <span class="string">&quot;empty&quot;</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回队头元素</span></span><br><span class="line">    Object <span class="title function_">front</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!(rear==front))&#123;</span><br><span class="line">            <span class="keyword">return</span> data[front];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;empty&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="title function_">queueLength</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (rear-front+maxSize)%maxSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入循环队列大小和操作次数（空格分开）&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> sc.nextLine();</span><br><span class="line">        String[] strArr = str.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="type">queue3</span> <span class="variable">q</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">queue3</span>(Integer.parseInt(strArr[<span class="number">0</span>]));</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Integer.parseInt(strArr[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> sc.nextLine();</span><br><span class="line">            String[] strArr2 = str2.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="keyword">switch</span>(strArr2[<span class="number">0</span>])&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;push&quot;</span>:</span><br><span class="line">                str2=q.push(Integer.parseInt(strArr2[<span class="number">1</span>]));</span><br><span class="line">                <span class="keyword">if</span>(str2.equals(<span class="string">&quot;full&quot;</span>))&#123;</span><br><span class="line">                    System.out.println(str2);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;pop&quot;</span>:</span><br><span class="line">                System.out.println(q.pop());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;front&quot;</span>:</span><br><span class="line">                System.out.println(q.front());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/22/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-实战开发中的JWT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
